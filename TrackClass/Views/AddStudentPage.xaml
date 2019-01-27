@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="TrackClass.Views.AddStudentPage" 
+             xmlns:toolkit="clr-namespace:TrackClass.Toolkit">
+    
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Command="{Binding SaveCommand}"
+                     Clicked="Handle_SaveClicked"/>
+    </ContentPage.ToolbarItems>
+    
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:BoolToDoubleConverter x:Key="boolToDoubleConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    
+    <TableView Intent="Form" HasUnevenRows="true">
+        <TableView.Root>
+            <!--            Personal Info Section -->
+            <TableSection Title="Personal Info">
+                <ViewCell>
+                    <StackLayout Spacing="0" Padding="10">
+                        
+                        <Label Text="First Name" FontSize="Medium" TextColor="#75000000" />
+                        
+                        <Entry Text="{Binding FirstNameEntryText}" Placeholder="Enter given name" Keyboard="Text"/>
+                        
+                        <Label Text="*name can ONLY include alphabet letters"
+                               TextColor="Red"
+                               FontSize="Micro"
+                               Opacity="{Binding FirstNameErrorOpacity, Converter={StaticResource boolToDoubleConverter}}"/>
+                        
+                        <Label Text="Family Name" FontSize="Medium" TextColor="#75000000" />
+                        
+                        <Entry Text="{Binding FamilyNameEntryText}" Placeholder="Enter family name" Keyboard="Text"/>
+                        
+                        <Label Text="*name can ONLY include alphabet letters"
+                               TextColor="Red"
+                               FontSize="Micro"
+                               Opacity="{Binding FamilyNameErrorOpacity, Converter={StaticResource boolToDoubleConverter}}"/>
+                    </StackLayout>
+                </ViewCell>
+                
+                
+                <ViewCell>
+                    <StackLayout Spacing="0" Padding="10">
+                        <DatePicker MaximumDate="{Binding MaxDate}" MinimumDate="{Binding MinDate}" Date="{Binding BirthDate}" />
+                    </StackLayout>
+                </ViewCell>
+            </TableSection>
+            
+            
+            <!--           Contact Info Section -->
+            <TableSection Title="Contact Info">
+                
+                <ViewCell>
+                    <StackLayout Padding="10" Spacing="0">
+                        <Label Text="Phone Number" FontSize="Medium" TextColor="#75000000" />
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="+998" FontSize="Medium" TextColor="#75000000" VerticalOptions="Center" />
+                            <Entry Text="{Binding PhoneEntryText}" Placeholder="93 1234567  " Keyboard="Telephone"/>                    </StackLayout>
+                        <Label Text="*wrong phone number format"
+                               TextColor="Red"
+                               FontSize="Micro"
+                               Opacity="{Binding PhoneErrorOpacity, Converter={StaticResource boolToDoubleConverter}}"/>
+                        </StackLayout>
+                </ViewCell>
+                
+                
+                <ViewCell>
+                    <StackLayout Spacing="0" Padding="10">
+                        <Label Text="Enter Email" FontSize="Medium" TextColor="#75000000" />
+                        <Entry Text="{Binding EmailEntryText}" Placeholder="example@mydomain.com" Keyboard="Email"/>                        <Label Text="*correct format: example@mydomai.com"
+                               TextColor="Red"
+                               FontSize="Micro"
+                               Opacity="{Binding EmailErrorOpacity, Converter={StaticResource boolToDoubleConverter}}"/>
+                    </StackLayout>
+                </ViewCell>
+            </TableSection>
+            
+            
+            <!--            Subject Section-->
+            <TableSection Title="Subject">
+                <ViewCell>
+                    <Picker ItemsSource="{Binding Subjects}" SelectedIndex="{Binding PickerSelectedIndex}" />
+                </ViewCell>
+            </TableSection>
+            
+            
+        </TableView.Root>
+    </TableView>
+</ContentPage>

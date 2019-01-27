@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="TrackClass.Views.StudentListPage"
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="Handle_AddClicked"/>
+    </ContentPage.ToolbarItems>    
+    
+    <AbsoluteLayout>
+        <lottie:AnimationView Animation="gradient_animated_background.json"
+                              Loop="true"
+                              AutoPlay="true"
+                              Speed=".05"
+                              Scale="1.5"
+                              AbsoluteLayout.LayoutBounds="0,0,1,1"
+                              AbsoluteLayout.LayoutFlags="All"/>
+                
+        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All"
+                     Spacing="0"
+                     BackgroundColor="Transparent">
+            
+            <SearchBar Placeholder="Search for a student"
+                       Opacity=".5"/>
+            
+             
+            <ListView BackgroundColor="Transparent"
+                      x:Name="studentListView"
+                      HasUnevenRows="true"
+                      SeparatorColor="White">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal"
+                                         Padding="10,0,10,0">
+                                <StackLayout HorizontalOptions="StartAndExpand"
+                                             Spacing="0">
+                                    <Label Text="{Binding FirstName}"
+                                           FontSize="Large"
+                                           TextColor="White"/>
+                                    <Label Text="{Binding ID}"
+                                           FontSize="Small"
+                                           TextColor="#ccffffff"/>
+                                </StackLayout>
+                                
+                                <Button BackgroundColor="Transparent"
+                                        Text="Attend"
+                                        TextColor="White"/>
+                                
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>

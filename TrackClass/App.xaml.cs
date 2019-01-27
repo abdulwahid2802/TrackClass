@@ -1,7 +1,7 @@
 ﻿using System;
+using TrackClass.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace TrackClass
 {
@@ -11,7 +11,7 @@ namespace TrackClass
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new StudentListPage());
         }
 
         protected override void OnStart()
