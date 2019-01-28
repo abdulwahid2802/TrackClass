@@ -2,7 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="TrackClass.Views.StudentListPage"
-             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms">
+             xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             xmlns:viewModels="clr-namespace:TrackClass.ViewModels"
+             Title="{Binding Title}"
+             x:Name="studentListPage">
+    
+    <ContentPage.BindingContext>
+        <viewModels:StudentListPageViewModel/>
+    </ContentPage.BindingContext>
+
+    
     
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="Handle_AddClicked"/>
@@ -36,9 +45,11 @@
                             <StackLayout Orientation="Horizontal"
                                          Padding="10,0,10,0">
                                 <StackLayout HorizontalOptions="StartAndExpand"
-                                             Spacing="0">
+                                             Spacing="2"
+                                             Padding="0,2,0,2">
                                     <Label Text="{Binding FirstName}"
                                            FontSize="Large"
+                                           FontAttributes="Bold"
                                            TextColor="White"/>
                                     <Label Text="{Binding ID}"
                                            FontSize="Small"
@@ -48,8 +59,19 @@
                                 <Button BackgroundColor="Transparent"
                                         Text="Attend"
                                         TextColor="White"/>
-                                
                             </StackLayout>
+                            
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Delete"
+                                          Command="{Binding Source={x:Reference studentListPage}, 
+                                                            Path=BindingContext.DeleteCommand}"
+                                          CommandParameter="{Binding .}"
+                                          IsDestructive="true"/>
+                                <MenuItem Text="Call" 
+                                          Command="{Binding Source={x:Reference studentListPage}, 
+                                                            Path=BindingContext.CallCommand}"/>
+                            </ViewCell.ContextActions>
+                            
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

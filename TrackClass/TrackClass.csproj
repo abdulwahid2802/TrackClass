@@ -20,6 +20,9 @@
     <Folder Include="Toolkit\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Remove="Views\StudentListPageViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
       <SubType>Code</SubType>

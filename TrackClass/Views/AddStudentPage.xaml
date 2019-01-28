@@ -62,8 +62,12 @@
                         <Label Text="Phone Number" FontSize="Medium" TextColor="#75000000" />
                         <StackLayout Orientation="Horizontal">
                             <Label Text="+998" FontSize="Medium" TextColor="#75000000" VerticalOptions="Center" />
-                            <Entry Text="{Binding PhoneEntryText}" Placeholder="93 1234567  " Keyboard="Telephone"/>                    </StackLayout>
-                        <Label Text="*wrong phone number format"
+                            <Entry Text="{Binding PhoneNumberEntryText}" Placeholder="93 123 4567  " Keyboard="Telephone">
+                                <Entry.Behaviors>
+                                    <toolkit:PhoneValidationBehavior x:Name="phoneValidBehavior"/>
+                                </Entry.Behaviors>
+                        </Entry>                    </StackLayout>
+                        <Label Text="*number must include only digits"
                                TextColor="Red"
                                FontSize="Micro"
                                Opacity="{Binding PhoneErrorOpacity, Converter={StaticResource boolToDoubleConverter}}"/>
@@ -93,4 +97,5 @@
             
         </TableView.Root>
     </TableView>
+    
 </ContentPage>

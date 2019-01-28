@@ -177,8 +177,8 @@ namespace TrackClass.ViewModels
 
         public bool PhoneErrorOpacity
         {
-            get { return _phoneNumberErrorOpacity; }
             private set { SetProperty(ref _phoneNumberErrorOpacity, value); }
+            get { return _phoneNumberErrorOpacity; }
         }
 
         public bool EmailErrorOpacity
@@ -232,7 +232,7 @@ namespace TrackClass.ViewModels
             try
             {
                 return Regex.IsMatch(number,
-                                     @"^([0-9]){10,10}+$",
+                                     @"^([0-9 ]{11})+$",
                                      RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
 
             }

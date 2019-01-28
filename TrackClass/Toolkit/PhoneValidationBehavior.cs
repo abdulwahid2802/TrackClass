@@ -41,18 +41,19 @@ namespace TrackClass.Toolkit
         {
             var entry = sender as Entry;
 
-            IsValid = IsValidNumber(entry.Text);
+            //IsValid = IsValidNumber(entry.Text);
 
-            IsValidPhoneNumber = IsValid;
-
-            // add space after two digits
-            if (entry.Text.Length == 2 && !e.OldTextValue.EndsWith(" "))
-                entry.Text += " ";
-
-            // delete space and next digit 
-            if(e.OldTextValue != null)
-                if (e.OldTextValue.Length > e.NewTextValue.Length && e.NewTextValue.Length == 2)
-                    entry.Text = entry.Text.Substring(0, entry.Text.Length - 1);
+            if(e.NewTextValue.Length == 2 || e.NewTextValue.Length == 6)
+            {
+                if(e.OldTextValue.Length > e.NewTextValue.Length)
+                {
+                    entry.Text = e.NewTextValue.Substring(0, e.NewTextValue.Length - 1);
+                }
+                else
+                {
+                    entry.Text += " ";
+                }
+            }
 
         }
 
