@@ -66,7 +66,8 @@
                                 <Entry.Behaviors>
                                     <toolkit:PhoneValidationBehavior x:Name="phoneValidBehavior"/>
                                 </Entry.Behaviors>
-                        </Entry>                    </StackLayout>
+                        </Entry>                    
+                        </StackLayout>
                         <Label Text="*number must include only digits"
                                TextColor="Red"
                                FontSize="Micro"

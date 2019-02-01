@@ -54,7 +54,6 @@ namespace TrackClass.Toolkit
                     entry.Text += " ";
                 }
             }
-
         }
 
         private bool IsValidNumber(string text)
