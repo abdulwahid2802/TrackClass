@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using TrackClass.Enums;
 using Xamarin.Forms;
 
 namespace TrackClass.FileServices
@@ -32,6 +33,11 @@ namespace TrackClass.FileServices
         public Task DeleteAsync(string filename)
         {
             return fileHelper.DeleteAsync(filename);
+        }
+
+        public Task CreateDirectory(FoldersEnum folder)
+        {
+            return fileHelper.CreateDirectory(folder);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using TrackClass.Enums;
 
 namespace TrackClass.FileServices
 {
@@ -15,5 +16,11 @@ namespace TrackClass.FileServices
         Task<IEnumerable<string>> GetFilesAsync();
 
         Task DeleteAsync(string filename);
+
+
+        // // // // // // // // // // // // // // // 
+        Task CreateDirectory(FoldersEnum folder);
+
+        Task<string> GetLocalFolder(FoldersEnum folder);
     }
 }

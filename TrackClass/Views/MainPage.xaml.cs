@@ -12,6 +12,8 @@ namespace TrackClass
         public MainPage()
         {
             InitializeComponent();
+
+
         }
     }
 }

@@ -63,6 +63,8 @@ namespace TrackClass.ViewModels
             };
             
             Variables.studentsCollection.Add(student);
+
+            SaveLoadStudent.SaveStudentAsync();
         }
         
         private string GenerateID()

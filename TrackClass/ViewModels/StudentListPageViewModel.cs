@@ -12,6 +12,8 @@ namespace TrackClass.ViewModels
 
         string _title = "Students";
 
+        int _pageHeight;
+        int _pageWidth;
 
         public StudentListPageViewModel()
         {
@@ -22,6 +24,8 @@ namespace TrackClass.ViewModels
         private void DeleteHandler(Student student)
         {
             Variables.studentsCollection.Remove(student);
+
+            SaveLoadStudent.SaveStudentAsync();
         }
 
         private void CallHandler(Student s)
@@ -33,6 +37,29 @@ namespace TrackClass.ViewModels
         {
             set { SetProperty(ref _title, value); }
             get { return _title; }
+        }
+
+        public int PageHeight
+        {
+            set { SetProperty(ref _pageHeight, value); }
+            get { return _pageHeight; }
+        }
+
+        public int PageWidth
+        {
+            set { SetProperty(ref _pageWidth, value); }
+            get { return _pageWidth; }
+        }
+        
+        public double AnimationViewScale
+        {
+            get 
+            {
+                if (PageHeight > PageWidth)
+                    return 1.5;
+
+                return 5.5;
+            }
         }
 
         public ICommand DeleteCommand

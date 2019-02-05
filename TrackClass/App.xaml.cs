@@ -1,4 +1,5 @@
 ﻿using System;
+using TrackClass.Models;
 using TrackClass.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -17,11 +18,14 @@ namespace TrackClass
         protected override void OnStart()
         {
             // Handle when your app starts
+
+            SaveLoadStudent.LoadStudentAsync();
         }
 
         protected override void OnSleep()
         {
             // Handle when your app sleeps
+            SaveLoadStudent.SaveStudentAsync();
         }
 
         protected override void OnResume()

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using TrackClass.Enums;
 using TrackClass.FileServices;
 using Xamarin.Forms;
 
@@ -60,6 +61,18 @@ namespace TrackClass.iOS.FileServices
         private string GetDocsFolder()
         {
             return Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        }
+
+        public Task CreateDirectory(FoldersEnum folder)
+        {
+            Directory.CreateDirectory(Path.Combine(GetDocsFolder(), folder.ToString()));
+            return Task.FromResult(true);
+        }
+
+        public Task<string> GetLocalFolder(FoldersEnum folder)
+        {
+            var localFolder = Path.Combine(GetDocsFolder(), folder.ToString());
+            return Task.FromResult(localFolder);
         }
     }
 }
