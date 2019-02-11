@@ -16,8 +16,9 @@
     
     
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="Handle_AddClicked"/>
-    </ContentPage.ToolbarItems>    
+        <ToolbarItem Text="Add" Clicked="Handle_AddClicked" Order="Primary"/>
+    </ContentPage.ToolbarItems>
+    
     
     <AbsoluteLayout x:Name="absoluteLayout">
         <lottie:AnimationView x:Name="backgroundAnimation"
@@ -41,7 +42,8 @@
             <ListView BackgroundColor="Transparent"
                       x:Name="studentListView"
                       HasUnevenRows="true"
-                      SeparatorColor="White">
+                      SeparatorColor="White"
+                      ItemSelected="Handle_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

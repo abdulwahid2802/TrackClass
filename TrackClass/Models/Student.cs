@@ -17,5 +17,7 @@ namespace TrackClass.Models
 
         public short UnpayedCount { get; set; }
 
+        public short ClassId { get; set; }
+
     }
 }

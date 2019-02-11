@@ -9,6 +9,16 @@ namespace TrackClass.Views
 {
     public partial class StudentListPage : ContentPage
     {
+        void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem == null)
+                return;
+
+            Navigation.PushAsync(new StudentDetailPage(e.SelectedItem as Student));
+
+            var listView = sender as ListView;
+            listView.SelectedItem = null;
+        }
 
         public StudentListPage()
         {

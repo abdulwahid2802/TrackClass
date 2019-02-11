@@ -60,6 +60,7 @@ namespace TrackClass.ViewModels
                 PhoneNumber = PhoneNumberEntryText,
                 BirthDate = this.BirthDate,
                 ID = GeneratedID,
+                ClassId = PickerSelectedIndex
             };
             
             Variables.studentsCollection.Add(student);
