@@ -3,6 +3,7 @@ using TrackClass.Models;
 using TrackClass.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace TrackClass
 {
@@ -12,7 +13,12 @@ namespace TrackClass
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new StudentListPage());
+            MainPage = new NavigationPage(new CustomAddStudentPage())
+            {
+                BarBackgroundColor = Color.FromHex("f93795"),
+                BarTextColor = Color.White
+
+            };
         }
 
         protected override void OnStart()

@@ -18,17 +18,25 @@
     <Folder Include="Models\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Views\" />
-    <Folder Include="Toolkit\" />
     <Folder Include="FileServices\" />
     <Folder Include="Enums\" />
+    <Folder Include="CustomRenderers\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Views\StudentListPageViewModel.cs" />
+    <Compile Remove="Toolkit\BoolToDoubleConverter.cs" />
+    <Compile Remove="Toolkit\EmailValidationBehavior.cs" />
+    <Compile Remove="Toolkit\FamilyNameValidationBehavior.cs" />
+    <Compile Remove="Toolkit\FirstNameValidationBehavior.cs" />
+    <Compile Remove="Toolkit\PhoneValidationBehavior.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Toolkit\Toolkit\Toolkit.csproj" />
   </ItemGroup>
 </Project>

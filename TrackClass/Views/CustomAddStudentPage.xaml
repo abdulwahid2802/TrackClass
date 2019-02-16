@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="TrackClass.Views.CustomAddStudentPage"
+             xmlns:behavoirs="clr-namespace:Toolkit.Behaviors;assembly=Toolkit"
+             xmlns:converters="clr-namespace:Toolkit.Converters;assembly=Toolkit"
+             xmlns:renderers="clr-namespace:TrackClass.CustomRenderers">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:BoolToDoubleConverter x:Key="boolToDoubleConverter"/>
+            
+            <Style x:Key="sectionNameLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="TextColor" Value="#75ffffff"/>
+            </Style>
+            
+            <Style TargetType="Label" x:Key="errorLabelStyle">
+                <Setter Property="TextColor" Value="Yellow"/>
+                <Setter Property="FontSize" Value="Micro"/>
+            </Style>
+            
+            <Style TargetType="renderers:CustomEntry">
+                <Setter Property="PlaceholderColor" Value="#75ffffff"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BackgroundColor">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Color" 
+                                    Android="Transparent"
+                                    iOS="#75ffffff"/>
+                    </Setter.Value>
+                </Setter>
+                <!--<Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double"
+                                    Android="40"/>
+                    </Setter.Value>
+                </Setter>-->
+            </Style>
+            
+            <Style TargetType="Picker">
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="BackgroundColor" Value="#75ffffff"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+            
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <TableView Intent="Form"
+               BackgroundColor="#933755"
+               HasUnevenRows="true">
+        <TableView.Root>
+            <TableSection Title="Personal Info">
+                <ViewCell>
+                    <StackLayout Spacing="5" Padding="10,10,10,30">
+                        <StackLayout  Spacing="0">
+                            <Label Style="{StaticResource sectionNameLabel}" Text="First Name"/>
+                            <renderers:CustomEntry Placeholder="Enter first name">
+                                <Entry.Behaviors>
+                                    <behavoirs:EntryFirstNameValidationBehavior x:Name="firstNameValidation"/>
+                                </Entry.Behaviors>
+                            </renderers:CustomEntry>
+                            <Label Style="{StaticResource errorLabelStyle}" 
+                                   Text="{Binding Source={x:Reference firstNameValidation}, Path=ErrorType}"/>
+                        </StackLayout>
+                        <StackLayout  Spacing="0">
+                            <Label Style="{StaticResource sectionNameLabel}" Text="First Name"/>
+                            <renderers:CustomEntry Placeholder="Enter last name">
+                                <Entry.Behaviors>
+                                    <behavoirs:EntryLastNameValidationBehavior x:Name="lastNameValidation"/>
+                                </Entry.Behaviors>
+                            </renderers:CustomEntry>
+                            <Label Style="{StaticResource errorLabelStyle}"
+                                   Text="{Binding Source={x:Reference lastNameValidation}, Path=ErrorType}"/>
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
+                <ViewCell>
+                    <StackLayout Padding="10" Spacing="0">
+                        <Label Style="{StaticResource sectionNameLabel}"
+                               Text="Birth Date"/>
+                        <DatePicker BackgroundColor="#75ffffff" 
+                                    TextColor="White"/>
+                    </StackLayout>              
+                </ViewCell>
+            </TableSection>
+            <TableSection Title="Contact info">
+                <ViewCell>
+                    <StackLayout  Spacing="0" Padding="10,10,10,15">
+                        <Label Style="{StaticResource sectionNameLabel}" Text="Phone Number"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="+998" Style="{StaticResource sectionNameLabel}"
+                                   VerticalOptions="Center"/>
+                            <renderers:CustomEntry Placeholder="98 765 4321  ">
+                                <Entry.Behaviors>
+                                    <behavoirs:EntryPhoneValidationBehavior x:Name="phoneValidationBehavior"/>
+                                </Entry.Behaviors>
+                            </renderers:CustomEntry>
+                        </StackLayout>
+                        <Label Style="{StaticResource errorLabelStyle}"
+                               Text="{Binding Source={x:Reference phoneValidationBehavior}, Path=ErrorType}"/>
+                    </StackLayout>
+                </ViewCell>
+                <ViewCell>
+                    <StackLayout  Spacing="0" Padding="10,10,10,15">
+                        <Label Style="{StaticResource sectionNameLabel}" Text="Email"/>
+                        <renderers:CustomEntry Placeholder="Enter email">
+                            <Entry.Behaviors>
+                                <behavoirs:EntryEmailValidationBehavior x:Name="emailValidationBehavior"/>
+                            </Entry.Behaviors>
+                        </renderers:CustomEntry>
+                        <Label Style="{StaticResource errorLabelStyle}"
+                               Text="{Binding Source={x:Reference emailValidationBehavior}, Path=ErrorType}"/>
+                    </StackLayout>
+                </ViewCell>
+            </TableSection>
+            <TableSection Title="Subjects">
+                <ViewCell>
+                    <StackLayout  Spacing="0" Padding="10">
+                        <Label Style="{StaticResource sectionNameLabel}" Text="Programming Languages"/>
+                        <Picker>
+                            <Picker.Items>
+                                <x:String>C#</x:String>
+                                <x:String>Java</x:String>
+                                <x:String>C++</x:String>
+                                <x:String>C</x:String>
+                                <x:String>Python</x:String>
+                                <x:String>JavaScript</x:String>
+                                <x:String>PHP</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </StackLayout>
+                </ViewCell>
+                <ViewCell>
+                    <StackLayout  Spacing="0" Padding="10">
+                        <Label Style="{StaticResource sectionNameLabel}" Text="Frameworks"/>
+                        <Picker>
+                            <Picker.Items>
+                                <x:String>Xamarin.Forms</x:String>
+                                <x:String>Unity</x:String>
+                                <x:String>ASP .NET</x:String>
+                                <x:String>Xamarin Android</x:String>
+                                <x:String>Xamarin iOS</x:String>
+                                <x:String>.NET Framework</x:String>
+                                <x:String>WPF</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </StackLayout>
+                </ViewCell>
+            </TableSection>
+        </TableView.Root>
+    </TableView>
+</ContentPage>

@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="TrackClass.Views.AddStudentPage" 
-             xmlns:toolkit="clr-namespace:TrackClass.Toolkit">
+             xmlns:converters="clr-namespace:Toolkit.Converters;assembly=Toolkit"
+             xmlns:behavoirs="clr-namespace:Toolkit.Behaviors;assembly=Toolkit">
     
     
     <ContentPage.ToolbarItems>
@@ -13,33 +14,39 @@
     
     <ContentPage.Resources>
         <ResourceDictionary>
-            <toolkit:BoolToDoubleConverter x:Key="boolToDoubleConverter" />
+            <converters:BoolToDoubleConverter x:Key="boolToDoubleConverter" />
+            <Style TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="#75ffffff"/>
+                <Setter Property="PlaceholderColor" Value="#75ffffff"/>
+            </Style>
+            
         </ResourceDictionary>
     </ContentPage.Resources>
     
     
-    <TableView Intent="Form" HasUnevenRows="true">
+    <TableView Intent="Form" HasUnevenRows="true"
+               BackgroundColor="#f93795">
         <TableView.Root>
             <!--            Personal Info Section -->
             <TableSection Title="Personal Info">
                 <ViewCell>
                     <StackLayout Spacing="0" Padding="10">
                         
-                        <Label Text="First Name" FontSize="Medium" TextColor="#75000000" />
+                        <Label Text="First Name" FontSize="Medium" TextColor="#c5ffffff" />
                         
                         <Entry Text="{Binding FirstNameEntryText}" Placeholder="Enter given name" Keyboard="Text"/>
                         
                         <Label Text="*name can ONLY include alphabet letters"
-                               TextColor="Red"
+                               TextColor="Yellow"
                                FontSize="Micro"
                                Opacity="{Binding FirstNameErrorOpacity, Converter={StaticResource boolToDoubleConverter}}"/>
                         
-                        <Label Text="Family Name" FontSize="Medium" TextColor="#75000000" />
+                        <Label Text="Family Name" FontSize="Medium" TextColor="#c5ffffff" />
                         
                         <Entry Text="{Binding FamilyNameEntryText}" Placeholder="Enter family name" Keyboard="Text"/>
                         
                         <Label Text="*name can ONLY include alphabet letters"
-                               TextColor="Red"
+                               TextColor="Yellow"
                                FontSize="Micro"
                                Opacity="{Binding FamilyNameErrorOpacity, Converter={StaticResource boolToDoubleConverter}}"/>
                     </StackLayout>
@@ -48,7 +55,13 @@
                 
                 <ViewCell>
                     <StackLayout Spacing="0" Padding="10">
-                        <DatePicker MaximumDate="{Binding MaxDate}" MinimumDate="{Binding MinDate}" Date="{Binding BirthDate}" />
+                        <Label Text="Birth Date" FontSize="Medium" TextColor="#c5ffffff" />
+                        <DatePicker HorizontalOptions="StartAndExpand" 
+                                    MaximumDate="{Binding MaxDate}" 
+                                    MinimumDate="{Binding MinDate}" 
+                                    Date="{Binding BirthDate}"
+                                    BackgroundColor="#75ffffff"
+                                    TextColor="#75ffffff"/>
                     </StackLayout>
                 </ViewCell>
             </TableSection>
@@ -59,17 +72,17 @@
                 
                 <ViewCell>
                     <StackLayout Padding="10" Spacing="0">
-                        <Label Text="Phone Number" FontSize="Medium" TextColor="#75000000" />
+                        <Label Text="Phone Number" FontSize="Medium" TextColor="#c5ffffff" />
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="+998" FontSize="Medium" TextColor="#75000000" VerticalOptions="Center" />
+                            <Label Text="+998" FontSize="Medium" TextColor="#c5ffffff" VerticalOptions="Center" />
                             <Entry Text="{Binding PhoneNumberEntryText}" Placeholder="93 123 4567  " Keyboard="Telephone">
                                 <Entry.Behaviors>
-                                    <toolkit:PhoneValidationBehavior x:Name="phoneValidBehavior"/>
+                                    <behavoirs:EntryPhoneValidationBehavior x:Name="phoneValidBehavior"/>
                                 </Entry.Behaviors>
                         </Entry>                    
                         </StackLayout>
                         <Label Text="*number must include only digits"
-                               TextColor="Red"
+                               TextColor="Yellow"
                                FontSize="Micro"
                                Opacity="{Binding PhoneErrorOpacity, Converter={StaticResource boolToDoubleConverter}}"/>
                         </StackLayout>
@@ -78,9 +91,10 @@
                 
                 <ViewCell>
                     <StackLayout Spacing="0" Padding="10">
-                        <Label Text="Enter Email" FontSize="Medium" TextColor="#75000000" />
-                        <Entry Text="{Binding EmailEntryText}" Placeholder="example@mydomain.com" Keyboard="Email"/>                        <Label Text="*correct format: example@mydomai.com"
-                               TextColor="Red"
+                        <Label Text="Enter Email" FontSize="Medium" TextColor="#c5ffffff" />
+                        <Entry Text="{Binding EmailEntryText}" Placeholder="example@mydomain.com" Keyboard="Email"/>                        
+                        <Label Text="*correct format: example@mydomain.com"
+                               TextColor="Yellow"
                                FontSize="Micro"
                                Opacity="{Binding EmailErrorOpacity, Converter={StaticResource boolToDoubleConverter}}"/>
                     </StackLayout>
@@ -91,11 +105,13 @@
             <!--            Subject Section-->
             <TableSection Title="Subject">
                 <ViewCell>
-                    <Picker ItemsSource="{Binding Subjects}" SelectedIndex="{Binding PickerSelectedIndex}" />
+                    <Picker ItemsSource="{Binding Subjects}" 
+                            SelectedIndex="{Binding PickerSelectedIndex}"
+                            BackgroundColor="#75ffffff"
+                            TextColor="#75ffffff"
+                            HorizontalOptions="CenterAndExpand"/>
                 </ViewCell>
             </TableSection>
-            
-            
         </TableView.Root>
     </TableView>
     

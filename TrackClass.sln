@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackClass.iOS", "TrackClas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackClass", "TrackClass\TrackClass.csproj", "{D6310785-2B3E-470B-93C4-80686FBCC260}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toolkit", "..\Toolkit\Toolkit\Toolkit.csproj", "{4F097D9D-B2FC-40A6-8221-0DAA3CF5F4AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,5 +69,21 @@ Global
 		{D6310785-2B3E-470B-93C4-80686FBCC260}.Ad-Hoc|iPhone.Build.0 = Debug|Any CPU
 		{D6310785-2B3E-470B-93C4-80686FBCC260}.AppStore|iPhone.ActiveCfg = Debug|Any CPU
 		{D6310785-2B3E-470B-93C4-80686FBCC260}.AppStore|iPhone.Build.0 = Debug|Any CPU
+		{4F097D9D-B2FC-40A6-8221-0DAA3CF5F4AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F097D9D-B2FC-40A6-8221-0DAA3CF5F4AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F097D9D-B2FC-40A6-8221-0DAA3CF5F4AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F097D9D-B2FC-40A6-8221-0DAA3CF5F4AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F097D9D-B2FC-40A6-8221-0DAA3CF5F4AD}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{4F097D9D-B2FC-40A6-8221-0DAA3CF5F4AD}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{4F097D9D-B2FC-40A6-8221-0DAA3CF5F4AD}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{4F097D9D-B2FC-40A6-8221-0DAA3CF5F4AD}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{4F097D9D-B2FC-40A6-8221-0DAA3CF5F4AD}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{4F097D9D-B2FC-40A6-8221-0DAA3CF5F4AD}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{4F097D9D-B2FC-40A6-8221-0DAA3CF5F4AD}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{4F097D9D-B2FC-40A6-8221-0DAA3CF5F4AD}.Release|iPhone.Build.0 = Release|Any CPU
+		{4F097D9D-B2FC-40A6-8221-0DAA3CF5F4AD}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
+		{4F097D9D-B2FC-40A6-8221-0DAA3CF5F4AD}.Ad-Hoc|iPhone.Build.0 = Release|Any CPU
+		{4F097D9D-B2FC-40A6-8221-0DAA3CF5F4AD}.AppStore|iPhone.ActiveCfg = Release|Any CPU
+		{4F097D9D-B2FC-40A6-8221-0DAA3CF5F4AD}.AppStore|iPhone.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

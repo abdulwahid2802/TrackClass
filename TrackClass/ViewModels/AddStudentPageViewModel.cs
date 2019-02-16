@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Windows.Input;
 using TrackClass.Models;
-using TrackClass.Toolkit;
 using Xamarin.Forms;
 
 namespace TrackClass.ViewModels

@@ -6,8 +6,9 @@
              xmlns:viewModels="clr-namespace:TrackClass.ViewModels"
              Title="{Binding Title}"
              WidthRequest="{Binding PageWidth}"
-             HeightRequest="{Binding pageHeight}"
-             x:Name="studentListPage">
+             HeightRequest="{Binding PageHeight}"
+             x:Name="studentListPage"
+             BackgroundColor="#f93795">
     
     <ContentPage.BindingContext>
         <viewModels:StudentListPageViewModel/>
@@ -20,14 +21,14 @@
     </ContentPage.ToolbarItems>    
     
     <AbsoluteLayout x:Name="absoluteLayout">
-        <lottie:AnimationView x:Name="backgroundAnimation"
+        <!--<lottie:AnimationView x:Name="backgroundAnimation"
                               AbsoluteLayout.LayoutBounds="0,0,1,1"
                               AbsoluteLayout.LayoutFlags="All"
                               Animation="gradient_animated_background.json"
                               Loop="true"
                               Speed=".2"
                               Scale="{Binding AnimationViewScale}"
-                              AutoPlay="true"/>
+                              AutoPlay="true"/>-->
                 
         <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
                      AbsoluteLayout.LayoutFlags="All"
