@@ -29,6 +29,7 @@
     <Compile Remove="Toolkit\FamilyNameValidationBehavior.cs" />
     <Compile Remove="Toolkit\FirstNameValidationBehavior.cs" />
     <Compile Remove="Toolkit\PhoneValidationBehavior.cs" />
+    <Compile Remove="CustomRenderers\ColoredTableView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\MainPage.xaml.cs">

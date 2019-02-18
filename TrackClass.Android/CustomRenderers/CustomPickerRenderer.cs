@@ -4,17 +4,19 @@ using TrackClass.CustomRenderers;
 using TrackClass.Droid.CustomRenderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
-[assembly: ExportRenderer(typeof(CustomEntry), typeof(CustomEntryRenderer))]
+
+[assembly: ExportRenderer(typeof(CustomPicker), typeof(CustomPickerRenderer))]
 namespace TrackClass.Droid.CustomRenderers
 {
-	public class CustomEntryRenderer : EntryRenderer
+	public class CustomPickerRenderer : PickerRenderer
     {
-        protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
+        protected override void OnElementChanged(ElementChangedEventArgs<Picker> e)
         {
             base.OnElementChanged(e);
 
+
             if (Control == null)
-                return; 
+                return;
 
             GradientDrawable gd = new GradientDrawable();
             gd.SetStroke(0, Color.White.ToAndroid());

@@ -38,17 +38,22 @@
                 </Setter>-->
             </Style>
             
-            <Style TargetType="Picker">
+            <Style TargetType="renderers:CustomPicker">
                 <Setter Property="FontSize" Value="Medium"/>
-                <Setter Property="BackgroundColor" Value="#75ffffff"/>
                 <Setter Property="TextColor" Value="White"/>
-                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="BackgroundColor">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Color"
+                                    Android="Transparent"
+                                    iOS="#75ffffff"/>
+                    </Setter.Value>
+                </Setter>
             </Style>
             
         </ResourceDictionary>
     </ContentPage.Resources>
     
-    <TableView Intent="Form"
+    <renderers:CustomTableView Intent="Form"
                BackgroundColor="#933755"
                HasUnevenRows="true">
         <TableView.Root>
@@ -65,7 +70,7 @@
                             <Label Style="{StaticResource errorLabelStyle}" 
                                    Text="{Binding Source={x:Reference firstNameValidation}, Path=ErrorType}"/>
                         </StackLayout>
-                        <StackLayout  Spacing="0">
+                        <StackLayout Spacing="0">
                             <Label Style="{StaticResource sectionNameLabel}" Text="First Name"/>
                             <renderers:CustomEntry Placeholder="Enter last name">
                                 <Entry.Behaviors>
@@ -81,8 +86,13 @@
                     <StackLayout Padding="10" Spacing="0">
                         <Label Style="{StaticResource sectionNameLabel}"
                                Text="Birth Date"/>
-                        <DatePicker BackgroundColor="#75ffffff" 
-                                    TextColor="White"/>
+                        <renderers:CustomDatePicker TextColor="White">
+                            <renderers:CustomDatePicker.BackgroundColor>
+                                <OnPlatform x:TypeArguments="Color"
+                                            iOS="#75ffffff"
+                                            Android="Transparent"/>
+                            </renderers:CustomDatePicker.BackgroundColor>
+                        </renderers:CustomDatePicker>
                     </StackLayout>              
                 </ViewCell>
             </TableSection>
@@ -120,7 +130,7 @@
                 <ViewCell>
                     <StackLayout  Spacing="0" Padding="10">
                         <Label Style="{StaticResource sectionNameLabel}" Text="Programming Languages"/>
-                        <Picker>
+                        <renderers:CustomPicker>
                             <Picker.Items>
                                 <x:String>C#</x:String>
                                 <x:String>Java</x:String>
@@ -130,13 +140,13 @@
                                 <x:String>JavaScript</x:String>
                                 <x:String>PHP</x:String>
                             </Picker.Items>
-                        </Picker>
+                        </renderers:CustomPicker>
                     </StackLayout>
                 </ViewCell>
                 <ViewCell>
                     <StackLayout  Spacing="0" Padding="10">
                         <Label Style="{StaticResource sectionNameLabel}" Text="Frameworks"/>
-                        <Picker>
+                        <renderers:CustomPicker>
                             <Picker.Items>
                                 <x:String>Xamarin.Forms</x:String>
                                 <x:String>Unity</x:String>
@@ -146,10 +156,10 @@
                                 <x:String>.NET Framework</x:String>
                                 <x:String>WPF</x:String>
                             </Picker.Items>
-                        </Picker>
+                        </renderers:CustomPicker>
                     </StackLayout>
                 </ViewCell>
             </TableSection>
         </TableView.Root>
-    </TableView>
+    </renderers:CustomTableView>
 </ContentPage>
